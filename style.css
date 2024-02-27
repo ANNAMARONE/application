@@ -1,0 +1,47 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+body{
+    background: #F6F8F9;
+    background: radial-gradient(circle farthest-corner at center center, #F6F8F9 0%, #E5EBEE 30%, #D7DEE3 60%, #F5F7F9 100%);
+    
+}
+.log{
+    color: black;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 30px;
+    text-align: center;
+    padding-top: 20px;
+    margin:20px;
+}
+fieldset{
+   margin-left: 20%;
+   margin-right: 35%;
+   border-color: black;
+ border-radius: 5px;
+}
+input{
+    padding: 20px;
+    margin-top: 20px;
+    border-radius: 20px;
+    margin: 20px;
+    margin-left: 30px;
+    padding-right: 35%;
+}
+label{
+    margin-left: 20px;
+}
+button{
+    padding: 20px;
+    margin: 20px;
+    padding-right: 20px;
+    background-color: blue;
+    color: #E5EBEE;
+    margin-left: 50%;
+
+}
+form{
+    margin-left: 10%;
+}
