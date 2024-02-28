@@ -1,6 +1,16 @@
 
 <?php
 include("config.php");
+
+
+$getData=$_POST;
+if(!isset($getData['Mot_de_passe'])||!isset( $getData['adresse_email'] )){
+   
+}
+else{
+    echo'<h1>inscrition réussi avec suuccé!</h1>';
+    
+}
 ?>;
 
 <!DOCTYPE html>
@@ -13,11 +23,18 @@ include("config.php");
 </head>
 <body>
 <header>
+    <div class="connecter">
+       
+    <button class="btnconnex" type="button">
+
+    <a href="connection.php">Se connecter</a>
+    </button>
+    </div>
     <img src="inno.png" alt="" class="inno">
     <div class="log">BOÎTE A IDÉE</div>
    
 </header>
-<form action="config.php" method="post" class="from1">
+<form action="connection.php" method="post" class="from1">
     <fieldset>
     <legend>FORMULAIRE D'INSCRIPTION</legend>
     <label for="prenom">PRENOM</label><br>

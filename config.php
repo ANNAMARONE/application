@@ -21,14 +21,8 @@ if(isset($_POST['envoyer'])){
   $sql = $conn->exec("INSERT INTO utilisateur (Nom,Prenom,numéro_téléphone,adresse_email,Mot_de_passe)VALUES('$nom', '$prenom', '$numero', '$email','$pwd')") ;
 
 }
-// $getData=$_POST;
-// if(!isset($getData['Mot_de_passe'])||!isset( $getData['adresse_email'] )){
-   
-// }
-// else{
-//     echo'<h1>Connexion réussi!</h1>';
-    
-// }
+
+
 
 
 
