@@ -13,6 +13,7 @@ include("config.php");
 </head>
 <body>
 <header>
+    <img src="inno.png" alt="" class="inno">
     <div class="log">BOÎTE A IDÉE</div>
    
 </header>

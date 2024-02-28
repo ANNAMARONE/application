@@ -22,7 +22,7 @@ include("config.php");
 <p>Remplir le formulaire pour enregistrer votre idée</p> 
                     
                     
-                    <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
+                    <form action="affichage.php" method="post">
                     <div class="création_idée">
                     <div class="catégorie">
                    <img src="idée.png" alt="" >
@@ -52,25 +52,25 @@ include("config.php");
         
                         <div class="form-group">
                             <label>titre</label>
-                            <input type="text" name="nom" class="form-control">
+                            <input type="text" name="titre" class="form-control">
                             <span class="invalid-feedback"></span>
                         </div>
                         <div class="form-group">
-                            <label>description</label><br>
-                            <textarea name="ecole" cols="30" rows="10" class="form-control"></textarea>
-                            <span class="invalid-feedback"><?php echo $ecole_err;?></span>
+                            <label>Contenu</label><br>
+                            <textarea name="contenu" cols="30" rows="10" class="form-control" name="titre"></textarea>
+                            <span class="invalid-feedback"></span>
                         </div>
                         <div class="form-group">
                             <label>date</label>
-                            <input type="date" name="age" class="form-control ">
+                            <input type="date" name="date_envoie" class="form-control ">
                             <span class="invalid-feedback"></span>
                         </div>
                         <div class="form-group">
                             <label>heure</label>
-                            <input type="TIME" name="age" class="form-control ">
-                            <span class="invalid-feedback"><?php echo $age_err;?></span>
+                            <input type="TIME" name="heure" class="form-control ">
+                            <span class="invalid-feedback"></span>
                         </div>
-                        <button class="btn2" type="submit">Enregistrer</button>
+                        <button class="btn2" type="submit" name="enregistrer">Enregistrer</button>
                         <a href="index.php" class="btn5">Annuler</a>
                         </div>
                         </div>
