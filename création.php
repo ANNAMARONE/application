@@ -1,12 +1,17 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
   <link rel="stylesheet" href="idée.css">
-    <title>Create Record</title>  
+    <title>Create Record</title>
+    
+    
 </head>
 <body>
-                  
+    
+    
+                    
                     <form action="affichage.php" method="post">
                         <fieldset>
                         <h2 class="mt-5">AJOUTER VOS IDÉES </h2>  
@@ -19,7 +24,7 @@
             <label for="">Matériel informatique et périphériques</label><br>
             <input type="checkbox" name="categorie" value="Services de cloud computing">
             <label for="">Services de cloud computing</label><br>
-            <input type="checkbox" name="categorie"  value="Sécurité informatique">
+            <input type="checkbox" name="categorie" value="Sécurité informatique">
             <label for="">Sécurité informatique</label><br>
             <input type="checkbox" name="categorie" value="Développement de jeux vidéo">
             <label for="">Développement de jeux vidéo</label>
@@ -40,7 +45,7 @@
                         </div>
                         <div class="form-group">
                             <label>Auteur</label><br>
-                            <input type="text" name="auteur" class="form-control " >
+                            <input type="number" name="auteur" class="form-control " placeholder="ajout ton udentifiant">
                             <span class="invalid-feedback"></span>
                         </div>
                         <div class="form-group">

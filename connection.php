@@ -1,5 +1,5 @@
 <?php
-include("config.php")
+require_once("config.php")
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -23,7 +23,7 @@ include("config.php")
             </div>
            <div>
             <button type="button" name="connecter" class="btn4">
-                <a href="">connecter</a>
+                <a href="">Se connecter</a>
             </button>
            </div> 
         </fieldset>
@@ -32,20 +32,24 @@ include("config.php")
 </body>
 </html>
 <?php
-if($_SERVER["REQUEST_METHOD"]=="POST"){
-    $email=$_POST['adresse_email'];
-    $mdp=$_POST['Mot_de_passe'];
-    if($email !=="" && $mdp !=""){
-        $result=$conn->query("SELECT * FROM utilisateur WHERE adrese _email='$email' AND Mot_de_passe='$mdw'  ");
-        $resul=$result->fetch();
-        if($resul["id"] != false){
-            header('Location: création.php');
+
+//     $email=$_POST['adresse_email'];
+//     $mdp=$_POST['Mot_de_passe'];
+//     if(empty($email) || empty($mdp )){
+// echo"email ou message incorrect";
+// exit;
+// }
+        $sql= "SELECT * FROM utilisateur WHERE adresse _email=:adresse_email ";
+        $requet=$conn->prepare($sql);
+        $repons->executel([':email'=>$email]);
+        $user=$requet->fetch();
+        if($user ||!password_verify($mdp,$user['Mot_de_passe'])){
+            header('Location:création.php');
+            exit;
         }
-       else{
-        $error_message=" email ou message incorrecte";
-       } 
-    }
-}
+        
+  
+
 
 
 

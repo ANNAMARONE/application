@@ -20,23 +20,23 @@ if (isset($_POST['enregistrer'])) {
         echo "Erreur : " . $e->getMessage();
     }
 }
+// suprimer une idée
 
-    // $getData=$_POST;
-    // if(isset($getData['contenu'])||!isset( $getData['titre'] )){
-
-    //     echo'<h1>idée</h1>';
-    //     echo"<p><b>Titre</b> : " .$_POST['titre'];
-    //     echo"<p><b>Contenu</b> :" .$_POST['contenu'];
-        
-    //     echo"<p><b>Date</b> : " .$_POST['date_envoie'];
-    //     echo"<p><b>heure</b> :" .$_POST['heure'];
-    //     echo"<p><b>catégorie</b> : " .$_POST['catégorie'];
-    
-    // }
+if(isset($_GET['sup'])){
+    $id= $_GET['sup'];
+    $sql3= "DELETE FROM `idée` WHERE `id`=$id";
+    $deleteuruser=$conn->prepare($sql3);
+    $deleteuruser->execute();
+  
+    header("location:création.php");
+      exit();
+}
 
 $pdoStat=$conn->prepare('SELECT * FROM idée');
 $executeok=$pdoStat->execute();
 $idée=$pdoStat->fetchAll();
+
+
 
 ?>;
 <!DOCTYPE html>
@@ -58,8 +58,12 @@ $idée=$pdoStat->fetchAll();
       <p>le catégorie:  <?= $valeur['categorie']?></p>  
       <p>la date: <?= $valeur['date_envoie']?></p>  
       <p>envoyer par l'utilisateur N°: <?= $valeur['id_utilisateur']?></p> <br>
+      <button><a href="affichage.php? sup=<?=$valeur['id']?>">
+        suprimer</a></button>
       </div> 
-      
+
+
+
     <?php endforeach;?>
     
 </body>
