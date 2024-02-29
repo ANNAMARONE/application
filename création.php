@@ -1,9 +1,11 @@
 
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-  <link rel="stylesheet" href="idée.css">
+  <link rel="stylesheet" href="idee.css">
     <title>Create Record</title>
     
     
@@ -35,23 +37,23 @@
         
                         <div class="form-group">
                             <label>titre</label>
-                            <input type="text" name="titre" class="form-control">
-                            <span class="invalid-feedback"></span>
+                            <input type="text" name="titre" >
+                           
                         </div>
                         <div class="form-group">
                             <label>Contenu</label><br>
-                            <textarea name="contenu" cols="90" rows="10" class="form-control" name="titre"></textarea>
-                            <span class="invalid-feedback"></span>
+                            <textarea name="contenu" cols="90" rows="10" ></textarea>
+                           
                         </div>
                         <div class="form-group">
                             <label>Auteur</label><br>
-                            <input type="number" name="auteur" class="form-control " placeholder="ajout ton udentifiant">
-                            <span class="invalid-feedback"></span>
+                            <input type="text" name="auteur">
+                            
                         </div>
                         <div class="form-group">
                             <label>date</label><br>
-                            <input type="date" name="date_envoie" class="form-control ">
-                            <span class="invalid-feedback"></span>
+                            <input type="date" name="date_envoie" >
+                            
                         </div>
                         <button class="btn2" type="submit" name="enregistrer">Enregistrer</button>
                         <a href="index.php" class="btn5">Annuler</a>

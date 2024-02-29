@@ -2,6 +2,7 @@
 
 <?php
 
+
 require_once "config.php";
 
 
@@ -32,6 +33,7 @@ if(isset($_GET['sup'])){
       exit();
 }
 
+
 $pdoStat=$conn->prepare('SELECT * FROM idée');
 $executeok=$pdoStat->execute();
 $idée=$pdoStat->fetchAll();
@@ -44,7 +46,8 @@ $idée=$pdoStat->fetchAll();
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="idée.css">
+    <link rel="stylesheet" href="idee.css">
+    <link rel="stylesheet" href="button.css">
     <title>Document</title>
 </head>
 <body>
@@ -57,14 +60,17 @@ $idée=$pdoStat->fetchAll();
       <p>le contenu:  <?= $valeur['Contenu']?></p>  
       <p>le catégorie:  <?= $valeur['categorie']?></p>  
       <p>la date: <?= $valeur['date_envoie']?></p>  
-      <p>envoyer par l'utilisateur N°: <?= $valeur['id_utilisateur']?></p> <br>
-      <button><a href="affichage.php? sup=<?=$valeur['id']?>">
+      <p>Auteur: <?= $valeur['id_utilisateur']?></p> <br>
+      <button class="btnsup"><a href="affichage.php? sup=<?=$valeur['id']?>">
         suprimer</a></button>
+
+        <button><a href="mis_à_jour.php? id=<?=$valeur['id']?>">
+        Modifier</a></button>
       </div> 
 
 
 
     <?php endforeach;?>
-    
+
 </body>
 </html>

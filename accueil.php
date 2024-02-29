@@ -24,8 +24,8 @@ require_once "config.php";
                         <table>
                       
                      <tr>
-                           <th>#</th> 
-                            <th>Nom</th>
+                           <th>#</th> <br>
+                            <th>Nom <br></th> 
                             <th>prenom</th>
                             <th>numero de téléphone</th>
                            <th>adresse email</th>

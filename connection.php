@@ -1,5 +1,5 @@
 <?php
-require_once("config.php")
+require_once("config.php");
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -39,13 +39,15 @@ require_once("config.php")
 // echo"email ou message incorrect";
 // exit;
 // }
-        $sql= "SELECT * FROM utilisateur WHERE adresse _email=:adresse_email ";
+        $sql= "SELECT * FROM utilisateur WHERE Mot_de_passe=:Mot_de_passe ";
         $requet=$conn->prepare($sql);
-        $repons->executel([':email'=>$email]);
+        $repons->executel([':Mot_de_passe'=>$mdp]);
         $user=$requet->fetch();
         if($user ||!password_verify($mdp,$user['Mot_de_passe'])){
             header('Location:création.php');
             exit;
+        } else{
+            echo"mot de passe incorrect";
         }
         
   

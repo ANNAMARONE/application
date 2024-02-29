@@ -1,69 +1,76 @@
 
-
 <?php
-
-require_once "config.php";
-
-
-if (isset($_POST['enregistrer'])) {
-    $description = $_POST['contenu'];
-    $date = $_POST['date_envoie'];
-    $catégorie = $_POST['categorie'];
-    $auteur=$_POST['auteur'];
-    $titre = $_POST['titre'];
-    try {
-        // Votre code d'insertion ici
-        // ...
-        $sql = $conn->exec ("INSERT INTO idée (Contenu,date_envoie,categorie,id_utilisateur,titre)
-         VALUES ('$description','$date','$catégorie','$auteur','$titre')");
-    } catch (PDOException $e) {
-        echo "Erreur : " . $e->getMessage();
-    }
+require_once('config.php');
+if (isset($_GET['id'])) {
+$id=$_GET['id'];
+$sql4 = $conn->prepare('SELECT * FROM idée WHERE id=:id');
+$sql4->execute(array(':id' =>$id));
+$result=$sql4->fetch(PDO::FETCH_ASSOC);
 }
-
-    // $getData=$_POST;
-    // if(isset($getData['contenu'])||!isset( $getData['titre'] )){
-
-    //     echo'<h1>idée</h1>';
-    //     echo"<p><b>Titre</b> : " .$_POST['titre'];
-    //     echo"<p><b>Contenu</b> :" .$_POST['contenu'];
-        
-    //     echo"<p><b>Date</b> : " .$_POST['date_envoie'];
-    //     echo"<p><b>heure</b> :" .$_POST['heure'];
-    //     echo"<p><b>catégorie</b> : " .$_POST['catégorie'];
-    
-    // }
-
-$pdoStat=$conn->prepare('SELECT * FROM idée');
-$executeok=$pdoStat->execute();
-$idée=$pdoStat->fetchAll();
-
-
-
-?>;
+//   $sqlidée=$conn->prepare('SELECT * FROM idée');
+//  $sqlc->execute(array(':id'=>$id));
+//  $val=$sqlc->fetch(PDO::FETCH_ASSOC);
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="idée.css">
-    <title>Document</title>
+  <link rel="stylesheet" href="idee.css">
+    <title>Create Record</title>
+    
+    
 </head>
 <body>
-    <h1>liste des idées</h1>
-  
-    <?php
-    foreach($idée as $valeur):?>
-<div class="cat">
-    <a href="">
-      <p>titre: <?= $valeur['titre']?></p>  
-      <p>le contenu:  <?= $valeur['Contenu']?></p>  
-      <p>le catégorie:  <?= $valeur['categorie']?></p>  
-      <p>la date: <?= $valeur['date_envoie']?></p>  
-      <p>envoyer par l'utilisateur N°: <?= $valeur['id_utilisateur']?></p> <br>
-      </a>
-      </div> 
-    <?php endforeach;?>
-  
+                 
+                    <form method="post">
+                        <fieldset>
+                        <h2 class="mt-5">AJOUTER VOS IDÉES </h2>  
+                        <div class="idée1">
+                    <div class="création_idée">
+            <h2>Liste des catégories</h2>
+            <input type="checkbox" name="categorie" value="Logiciels et applications">
+            <label for="">Logiciels et applications</label><br>
+            <input type="checkbox" name="categorie" value="Matériel informatique et périphériques">
+            <label for="">Matériel informatique et périphériques</label><br>
+            <input type="checkbox" name="categorie" value="Services de cloud computing">
+            <label for="">Services de cloud computing</label><br>
+            <input type="checkbox" name="categorie" value="Sécurité informatique">
+            <label for="">Sécurité informatique</label><br>
+            <input type="checkbox" name="categorie" value="Développement de jeux vidéo">
+            <label for="">Développement de jeux vidéo</label>
+        
+        </div>
+        
+        <div class="idée2">
+        
+                        <div class="form-group">
+                            <label>titre</label>
+                            <input type="text" name="titre" class="form-control">
+                            <span class="invalid-feedback"></span>
+                        </div>
+                        <div class="form-group">
+                            <label>Contenu</label><br>
+                            <textarea name="contenu" cols="90" rows="10" class="form-control" name="titre" value<?=$valeur[] ?>></textarea>
+                            <span class="invalid-feedback"></span>
+                        </div>
+                        <div class="form-group">
+                            <label>Auteur</label><br>
+                            <input type="number" name="auteur" class="form-control " placeholder="ajout ton udentifiant">
+                            <span class="invalid-feedback"></span>
+                        </div>
+                        <div class="form-group">
+                            <label>date</label><br>
+                            <input type="date" name="date_envoie" class="form-control ">
+                            <span class="invalid-feedback"></span>
+                        </div>
+                        <button class="btn2" type="submit" name="Modifier">Modifier</button>
+                      
+                        </div>
+                        </div>
+                        </div>
+                        </fieldset>
+                    </form>
+                 
+                    
 </body>
 </html>
