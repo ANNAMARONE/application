@@ -1,5 +1,5 @@
 <?php
-require_once("config.php");
+require_once("config.php")
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -37,21 +37,30 @@ require_once("config.php");
 //     $mdp=$_POST['Mot_de_passe'];
 //     if(empty($email) || empty($mdp )){
 // echo"email ou message incorrect";
-// exit;
-// }
-        $sql= "SELECT * FROM utilisateur WHERE Mot_de_passe=:Mot_de_passe ";
-        $requet=$conn->prepare($sql);
-        $repons->executel([':Mot_de_passe'=>$mdp]);
-        $user=$requet->fetch();
-        if($user ||!password_verify($mdp,$user['Mot_de_passe'])){
-            header('Location:création.php');
-            exit;
-        } else{
-            echo"mot de passe incorrect";
-        }
-        
-  
 
+// }
+
+function connexion($conn,$email,$mdp){
+    $rep=$conn->prepare("SELECT * FROM utilisateur WHERE adresse _email=:adresse_email AND Mot_de_passe=:Mot_de_passe");
+  
+    $rep->bindParam(':adresse_email',$email);
+    $rep->bindparam(':Mot_de_passe',$mdp);
+    $rep->execute();
+
+    $user=$rep->fetch(PDO::FETCH_ASSOC);
+    if($user){
+        $_SESSION['utilisateur']=$user;
+        return true;
+            }else{
+                return false;
+            }
+}
+   if($_SERVER["REQUEST_METHOD"]=="POST") {
+        if(!isset($_POST["Mot_de_passe"]) && !isset($_POST["Mot_de_passe"])){
+            echo"mot de passe";
+        }
+  
+} 
 
 
 

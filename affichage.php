@@ -7,10 +7,10 @@ require_once "config.php";
 
 
 if (isset($_POST['enregistrer'])) {
-    $description = $_POST['contenu'];
+    $description = $_POST['Contenu'];
     $date = $_POST['date_envoie'];
     $catégorie = $_POST['categorie'];
-    $auteur=$_POST['auteur'];
+    $auteur=$_POST['id_utilisateur'];
     $titre = $_POST['titre'];
     try {
         // Votre code d'insertion ici
@@ -64,7 +64,7 @@ $idée=$pdoStat->fetchAll();
       <button class="btnsup"><a href="affichage.php? sup=<?=$valeur['id']?>">
         suprimer</a></button>
 
-        <button><a href="mis_à_jour.php? id=<?=$valeur['id']?>">
+        <button class="btnmod"><a href="mis_à_jour.php? id=<?=$valeur['id']?>">
         Modifier</a></button>
       </div> 
 
