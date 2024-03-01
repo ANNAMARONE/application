@@ -24,17 +24,12 @@ $sql = $conn->exec ("INSERT INTO idée (Contenu,date_envoie,categorie,id_utilisa
             $message="modifier avec succe";
 }
 }
-if (isset($_POST['Modifier'])) {
-    header('location:affichage.php');
-    
 
-}
 ?>
 
-<html lang="en" class="supernova ">
+<html lang="en">
     <head>
-        <script type="text/javascript" id="mobile-simulator">
-        window.hasMobileFirstExtension = true;</script>
+        
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <link rel="alternate" type="application/json+oembed" href="https://www.jotform.com/oembed/?format=json&amp;url=https%3A%2F%2Fform.jotform.com%2F240597105205552" title="oEmbed Form">
 <link rel="alternate" type="text/xml+oembed" href="https://www.jotform.com/oembed/?format=xml&amp;url=https%3A%2F%2Fform.jotform.com%2F240597105205552" title="oEmbed Form">
@@ -44,19 +39,13 @@ if (isset($_POST['Modifier'])) {
 <meta name="slack-app-id" content="AHNMASS8M">
 <meta property="og:image" content="https://cdn.jotfor.ms/assets/img/landing/opengraph.png">
 
-<script>
-          var favicon = document.querySelector('link[rel="shortcut icon"]');
-          window.isDarkMode = (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches);
-          if(favicon && window.isDarkMode) {
-              favicon.href = favicon.href.replaceAll('favicon-2021-light%402x.png', 'favicon-2021-dark%402x.png');
-          }
-      </script><link rel="canonical" href="https://form.jotform.com/240597105205552">
+<link rel="canonical" href="https://form.jotform.com/240597105205552">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=2.0, user-scalable=1">
 <meta name="HandheldFriendly" content="true">
-<title>Idea Submission Form</title>
+<title>boîte à idée</title>
 <link type="text/css" rel="stylesheet" href="https://cdn01.jotfor.ms/stylebuilder/static/form-common.css?v=21ce945
 ">
-<style type="text/css">@media print{*{-webkit-print-color-adjust: exact !important;color-adjust: exact !important;}.form-section{display:inline!important}.form-pagebreak{display:none!important}.form-section-closed{height:auto!important}.page-section{position:initial!important}}</style>
+
 <link type="text/css" rel="stylesheet" href="https://cdn02.jotfor.ms/themes/CSS/5e6b428acc8c4e222d1beb91.css?v=3.3.51966&amp;themeRevisionID=5f7ed99c2c2c7240ba580251">
 <link type="text/css" rel="stylesheet" href="https://cdn03.jotfor.ms/css/styles/payment/payment_styles.css?3.3.51966">
 <link type="text/css" rel="stylesheet" href="https://cdn01.jotfor.ms/css/styles/payment/payment_feature.css?3.3.51966">
@@ -106,7 +95,7 @@ if (isset($_POST['Modifier'])) {
       </li>
       <li class="form-line" data-type="control_button" id="id_2">
         <div id="cid_2" class="form-input-wide" data-layout="full">
-          <div data-align="auto" class="form-buttons-wrapper form-buttons-auto   jsTest-button-wrapperField"><button id="input_2" type="submit" name="enregistrer" class="form-submit-button submit-button jf-form-buttons jsTest-submitField" data-component="button" data-content="" aria-live="polite">enregistrer</button></div>
+          <div data-align="auto" class="form-buttons-wrapper form-buttons-auto   jsTest-button-wrapperField"><button id="input_2" type="submit" name="enregistrer" class="form-submit-button submit-button jf-form-buttons jsTest-submitField" data-component="button" data-content="" aria-live="polite">Modifier</button></div>
         </div>
       
   </div>
