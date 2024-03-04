@@ -15,8 +15,8 @@ if (isset($_POST['enregistrer'])) {
     try {
         // Votre code d'insertion ici
         // ...
-        $sql = $conn->exec ("INSERT INTO idée (Contenu,date_envoie,categorie,id_utilisateur,titre)
-         VALUES ('$description','$date','$catégorie','$auteur','$titre')");
+        $sql = $conn->exec ('INSERT INTO idée (Contenu,date_envoie,categorie,id_utilisateur,titre)
+        VALUES ("'.$description.'","'.$date.'","'.$catégorie.'","'.$auteur.'","'.$titre.'")');
     } catch (PDOException $e) {
         echo "Erreur : " . $e->getMessage();
     }
@@ -28,10 +28,11 @@ if(isset($_GET['sup'])){
     $sql3= "DELETE FROM `idée` WHERE `id`=$id";
     $deleteuruser=$conn->prepare($sql3);
     $deleteuruser->execute();
-  
-    header("location:création.php");
-      exit();
+   
+    header("location:creation.php");
+    exit();
 }
+
 
 
 $pdoStat=$conn->prepare('SELECT * FROM idée');
@@ -61,6 +62,7 @@ $idée=$pdoStat->fetchAll();
       <p>le catégorie:  <?= $valeur['categorie']?></p>  
       <p>la date: <?= $valeur['date_envoie']?></p>  
       <p>Auteur: <?= $valeur['id_utilisateur']?></p> <br>
+      
       <button class="btnsup"><a href="affichage.php? sup=<?=$valeur['id']?>">
         suprimer</a></button>
 
@@ -69,6 +71,7 @@ $idée=$pdoStat->fetchAll();
       </div> 
 
 
+      
 
     <?php endforeach;?>
 

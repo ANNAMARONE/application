@@ -17,7 +17,7 @@ if(isset($_POST['envoyer'])){
     $prenom=$_POST['Prenom'];
     $numero=$_POST['numéro_téléphone'];                 
     $email=$_POST['adresse_email'];
-    $pdw=$_POST['Mot_de_passe'];
+    $pwd=$_POST['Mot_de_passe'];
   $sql = $conn->exec("INSERT INTO utilisateur (Nom,Prenom,numéro_téléphone,adresse_email,Mot_de_passe)VALUES('$nom', '$prenom', '$numero', '$email','$pwd')") ;
 
 }
@@ -47,4 +47,4 @@ if(isset($_POST['envoyer'])){
 
 // }
 // }
-?>
+?>;

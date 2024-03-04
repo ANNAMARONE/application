@@ -1,6 +1,46 @@
+
 <?php
-require_once("config.php")
-?>
+
+
+require_once("config.php");
+
+
+   
+
+
+    
+    if(isset($_POST['connecter'])){
+        $email=$_POST['adresse_email'];
+    $mdp=$_POST['Mot_de_passe'];
+
+         
+        
+
+        if(!empty($email) || !empty($mdp)){
+            $email=htmlspecialchars($_POST['adresse_email']);
+        $mdp= htmlspecialchars($_POST['Mot_de_passe']);
+        $rep=$conn->prepare("SELECT * FROM utilisateur WHERE adresse_email=? AND Mot_de_passe=?");
+        
+        $rep->execute(array("adresse_email"=>$email,"Mot_de_passe"=>$mdp));
+
+        if($rep->rowCount()> 0){
+            die("");
+           echo"bonjou";
+            header('location:creation.php');
+        } else{
+            echo"votre mot de passe est incorrect";
+        }
+    }
+        else{
+      
+          echo'veuillez compléter tous les champs...';
+       
+        }
+    }
+
+    ?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,20 +50,20 @@ require_once("config.php")
     <title>Document</title>
 </head>
 <body>
-    <form action="création.php" method="post">
+    <form action="creation.php" method="POST">
     <fieldset>
         <legend class="legend2">CONNECTEZ VOUS</legend>
         <div class="connB">
             <label for=""> Username</label> <br>
-            <input type="text" name="adresse_email" placeholder="nomprenom@gmail.com">
+            <input type="email" name="adresse_email" placeholder="nomprenom@gmail.com">
             </div>
             <div class="connB">
                 <label for="">Password</label><br>
                 <input type="text" name="Mot_de_passe" placeholder="********">
             </div>
            <div>
-            <button type="button" name="connecter" class="btn4">
-                <a href="">Se connecter</a>
+            <button type="submit" name="connecter" class="btn4">
+               Se connecter
             </button>
            </div> 
         </fieldset>
@@ -31,37 +71,6 @@ require_once("config.php")
     
 </body>
 </html>
-<?php
-
-//     $email=$_POST['adresse_email'];
-//     $mdp=$_POST['Mot_de_passe'];
-//     if(empty($email) || empty($mdp )){
-// echo"email ou message incorrect";
-
-// }
-
-function connexion($conn,$email,$mdp){
-    $rep=$conn->prepare("SELECT * FROM utilisateur WHERE adresse _email=:adresse_email AND Mot_de_passe=:Mot_de_passe");
-  
-    $rep->bindParam(':adresse_email',$email);
-    $rep->bindparam(':Mot_de_passe',$mdp);
-    $rep->execute();
-
-    $user=$rep->fetch(PDO::FETCH_ASSOC);
-    if($user){
-        $_SESSION['utilisateur']=$user;
-        return true;
-            }else{
-                return false;
-            }
-}
-   if($_SERVER["REQUEST_METHOD"]=="POST") {
-        if(!isset($_POST["Mot_de_passe"]) && !isset($_POST["Mot_de_passe"])){
-            echo"mot de passe";
-        }
-  
-} 
 
 
 
-?>

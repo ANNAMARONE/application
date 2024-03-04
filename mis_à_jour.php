@@ -23,6 +23,7 @@ $sql = $conn->exec ("INSERT INTO idée (Contenu,date_envoie,categorie,id_utilisa
          if($statement->execute([':Contenu'=>$contenu,':categorie'=>$categorie,':id_utilisateur'=>$auteur,':date_envoie'=>$date,':titre'=>$titre])) {
             $message="modifier avec succe";
 }
+exit;
 }
 
 ?>
@@ -37,7 +38,6 @@ $sql = $conn->exec ("INSERT INTO idée (Contenu,date_envoie,categorie,id_utilisa
 <meta property="og:url" content="https://form.jotform.com/240597105205552">
 <meta property="og:description" content="Please click the link to complete this form.">
 <meta name="slack-app-id" content="AHNMASS8M">
-<meta property="og:image" content="https://cdn.jotfor.ms/assets/img/landing/opengraph.png">
 
 <link rel="canonical" href="https://form.jotform.com/240597105205552">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=2.0, user-scalable=1">
