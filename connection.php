@@ -24,8 +24,8 @@ require_once("config.php");
         $rep->execute(array("adresse_email"=>$email,"Mot_de_passe"=>$mdp));
 
         if($rep->rowCount()> 0){
-            die("");
-           echo"bonjou";
+           
+          
             header('location:creation.php');
         } else{
             echo"votre mot de passe est incorrect";
